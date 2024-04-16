@@ -55,4 +55,25 @@ name = "amar"
 print(is_palindrome(name))
 
 
+for x in range(6):
+    print(x)
+else:
+    print(0)
+
+
+# list in python
+
+my_list = [10, 20, 30, 40, 50]
+my_list[2] = 35  # Updating the third element
+my_list.append(40)  # adding element to the last
+my_list.insert(1, 15)  # Inserting 15 at index 1
+my_list.remove(30)  # Removing the value 30
+my_list.pop(2)  # Removing the element at index 2
+
+
+
+
+
+
+
 
