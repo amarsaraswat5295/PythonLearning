@@ -54,12 +54,10 @@ def is_palindrome(name):
 name = "amar"
 print(is_palindrome(name))
 
-
 for x in range(6):
     print(x)
 else:
     print(0)
-
 
 # list in python
 
@@ -70,10 +68,38 @@ my_list.insert(1, 15)  # Inserting 15 at index 1
 my_list.remove(30)  # Removing the value 30
 my_list.pop(2)  # Removing the element at index 2
 
+# tuple
+
+# Creating a tuple
+my_tuple = (1, 2, 'three', 4.0)
+
+# Accessing elements using indexing
+first_element = my_tuple[0]
+second_element = my_tuple[1]
+third_element = my_tuple[2]
+fourth_element = my_tuple[3]
+
+# Printing the elements
+print("First element:", first_element)
+print("Second element:", second_element)
+print("Third element:", third_element)
+print("Fourth element:", fourth_element)
+
+# Two tuples to be concatenated
+tuple1 = (1, 2, 3)
+tuple2 = ('four', 'five', 'six')
+
+# Concatenating the two tuples
+concatenated_tuple = tuple1 + tuple2
+
+# Printing the concatenated tuple
+print("Concatenated Tuple:", concatenated_tuple)
 
 
+# lambda function
+
+def max(a, b):
+    return lambda a, b: a if (a > b) else b
 
 
-
-
-
+print(max(1, 2))
