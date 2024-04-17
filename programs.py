@@ -65,7 +65,6 @@ my_list = [10, 20, 30, 40, 50]
 my_list[2] = 35  # Updating the third element
 my_list.append(40)  # adding element to the last
 my_list.insert(1, 15)  # Inserting 15 at index 1
-my_list.remove(30)  # Removing the value 30
 my_list.pop(2)  # Removing the element at index 2
 
 # tuple
@@ -103,3 +102,31 @@ def max(a, b):
 
 
 print(max(1, 2))
+
+
+# decorators
+
+def decorator(func):
+    def wrapper():
+        print("This is printed before the function is called")
+        func()
+        print("This is printed after the function is called")
+
+    return wrapper
+
+
+@decorator
+def say_hello():
+    print("Hello! The function is executing")
+
+# say_hello = decorator(say_hello)
+
+
+@decorator
+def say_hi():
+    print("Hi! The function is executing")
+# say_hi = decorator(say_hi)
+
+
+say_hello()
+say_hi()
