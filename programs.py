@@ -119,14 +119,68 @@ def decorator(func):
 def say_hello():
     print("Hello! The function is executing")
 
+
 # say_hello = decorator(say_hello)
 
 
 @decorator
 def say_hi():
     print("Hi! The function is executing")
+
+
 # say_hi = decorator(say_hi)
 
 
 say_hello()
 say_hi()
+
+
+# use of *args (variable-length arguments)
+
+def total_sum_numbers(*args):
+    total = 0
+    for number in args:
+        total += num
+    return total
+
+
+print(total_sum_numbers(1, 2, 3, 4, 5))
+
+
+# use of **kwargs (keyword arguments)
+
+def my_fun(**kwargs):
+    for key, value in kwargs.items():
+        print("%s == %s" % (key, value))
+
+
+# Driver code
+my_fun(first='Geeks', mid='for', last='Geeks')
+
+
+# object-oriented programming
+
+class car:
+    def __init__(self, model_name, year):
+        self.model_name = model_name
+        self.year = year
+
+    def display(self):
+        print(self.model_name, self.year)
+
+
+c1 = car("Toyota", 2016)
+c1.display()
+
+
+# Whenever a class is instantiated __new__ and __init__ methods are called.
+# __new__ method will be called when an object is created and
+# __init__ method will be called to initialize the object.
+
+class A(object):
+    # new method returning a string
+    def __new__(cls):
+        print("object created")
+        return "return object"
+
+print(A())
