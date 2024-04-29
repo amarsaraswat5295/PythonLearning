@@ -183,4 +183,138 @@ class A(object):
         print("object created")
         return "return object"
 
+
 print(A())
+
+
+# inheritance
+# superclass
+class Animal:
+    def speak(self):
+        return "I am an animal."
+
+
+# subclass inheriting from Animal
+
+class Dog(Animal):
+    def bark(self):
+        return "Woof!"
+
+
+# Creating an instance of Dog
+my_dog = Dog()
+
+# Accessing method from superclass
+print(my_dog.speak())  # subclass inheriting from Animal
+
+# Accessing method from subclass
+print(my_dog.bark())  # Output: Woof!
+
+
+# multiple inheritance
+
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greet(self):
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+
+
+class Employee:
+    def __init__(self, emp_id, salary):
+        self.emp_id = emp_id
+        self.salary = salary
+
+    def work(self):
+        print("I am working hard to meet deadlines.")
+
+
+class Manager(Person, Employee):
+    def __init__(self, name, age, emp_id, salary):
+        Person.__init__(self, name, age)
+        Employee.__init__(self, emp_id, salary)
+
+    def manage(self):
+        print("I am managing a team.")
+
+
+# Create an instance of Manager
+manager = Manager("John", 35, "M001", 60000)
+
+# Call methods inherited from Person
+manager.greet()  # Output: Hello, my name is John and I am 35 years old.
+
+# Call methods inherited from Employee
+manager.work()  # Output: I am working hard to meet deadlines.
+
+# Call method specific to Manager
+manager.manage()  # Output: I am managing a team.
+
+
+# Multilevel Inheritance
+
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+
+
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+
+class GermanShepherd(Dog):
+    def guard(self):
+        print("German Shepherd guards")
+
+
+# Create instances of each class
+animal = Animal()
+dog = Dog()
+german_shepherd = GermanShepherd()
+
+# Call methods from each class
+animal.speak()  # Output: Animal speaks
+dog.speak()  # Output: Animal speaks
+dog.bark()  # Output: Dog barks
+german_shepherd.speak()  # Output: Animal speaks
+german_shepherd.bark()  # Output: Dog barks
+german_shepherd.guard()  # Output: German Shepherd guards
+
+
+# Hierarchical Inheritance:
+
+class Animal:
+    def speak(self):
+        pass
+
+
+class Dog(Animal):
+    def speak(self):
+        print("Woof!")
+
+
+class Cat(Animal):
+    def speak(self):
+        print("Meow!")
+
+
+class Cow(Animal):
+    def speak(self):
+        print("Moo!")
+
+
+# Create instances of subclasses
+
+
+dog = Dog()
+cat = Cat()
+cow = Cow()
+
+# Call speak method of each subclass
+dog.speak()  # Output: Woof!
+cat.speak()  # Output: Meow!
+cow.speak()  # Output: Moo!
