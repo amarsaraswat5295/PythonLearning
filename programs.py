@@ -318,3 +318,28 @@ cow = Cow()
 dog.speak()  # Output: Woof!
 cat.speak()  # Output: Meow!
 cow.speak()  # Output: Moo!
+
+
+# overriding concept
+
+class DataModel:
+    def evaluate(self, predictions, true_values):
+        print("Evaluating model...")
+        # Implementation of a basic evaluation metric
+
+
+class ClassificationModel(DataModel):
+    def evaluate(self, predictions, true_values):
+        print("Evaluating classification model...")
+        # Implementation of classification-specific evaluation metrics, e.g., accuracy, F1 score
+
+
+class RegressionModel(DataModel):
+    def evaluate(self, predictions, true_values):
+        super().evaluate("no",2)
+        print("Evaluating regression model...")
+        # Implementation of regression-specific evaluation metrics, e.g., MSE, RMSE
+
+
+regression_model=RegressionModel()
+regression_model.evaluate("yes",1)
