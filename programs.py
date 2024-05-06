@@ -336,10 +336,104 @@ class ClassificationModel(DataModel):
 
 class RegressionModel(DataModel):
     def evaluate(self, predictions, true_values):
-        super().evaluate("no",2)
+        super().evaluate("no", 2)
         print("Evaluating regression model...")
         # Implementation of regression-specific evaluation metrics, e.g., MSE, RMSE
 
 
-regression_model=RegressionModel()
-regression_model.evaluate("yes",1)
+regression_model = RegressionModel()
+regression_model.evaluate("yes", 1)
+
+
+# class method
+
+class Cat:
+    total_cats = 0
+
+    def __init__(self, name):
+        self.name = name
+        Cat.total_cats += 1
+
+    @classmethod
+    def show_total_cats(cls):
+        return cls.total_cats
+
+
+cat1 = Cat("Tom")
+cat2 = Cat("Jerry")
+print("Total number of cats", Cat.show_total_cats())  # directly calling from class without creating instance of cat.
+
+
+# Total cat= 2
+
+# static method
+
+class Calculate:
+    @staticmethod
+    def add(a, b):
+        return a + b
+
+    @staticmethod
+    def sub(a, b):
+        return a - b
+
+
+print("The sum of 3 and 5 is:", Calculate.add(3, 5))
+# both the methods are self-sufficient they are not dependent on class variable.
+calc = Calculate()
+print("The difference of 5 and 3 is:", calc.sub(5, 3))
+# The output of first statement will be 8
+# The output of secons statement will be 2
+
+# abstract class and abstract method
+
+from abc import ABC, abstractmethod
+from math import pi
+
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+    def area(self):
+        return self.width * self.height
+
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return pi * self.radius ** 2
+
+    def perimeter(self):
+        return 2 * pi * self.radius
+
+
+
+rectangle = Rectangle(3, 4)     # 3 is the width, 4 is the height
+print(rectangle.area())         # 12
+print(rectangle.perimeter())    # 14
+
+circle = Circle(3)              # 3 is the radius
+print(circle.area())            # 28.274333882308138
+print(circle.perimeter())       # 18.84955592153876
+
+# Demonstration that you cannot instantiate an abstract class
+shape = Shape()
+# TypeError: Can't instantiate abstract class Shape with abstract methods area, perimeter
+
